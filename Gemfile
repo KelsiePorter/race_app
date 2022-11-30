@@ -41,6 +41,7 @@ group :development, :test do
   gem 'factory_bot'
   gem 'capybara'
   gem 'launchy' #save_and_open_page
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
