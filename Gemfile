@@ -39,6 +39,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'factory_bot'
+  gem 'capybara'
+  gem 'launchy' #save_and_open_page
 end
 
 group :development do
