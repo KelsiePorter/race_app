@@ -10,7 +10,7 @@ RSpec.describe Race, type: :model do
         kilometers: 10, 
         date: Date.today
       )
-      
+
       expect(race.name).to eq("Turkey Trot")
       expect(race.location).to eq("Salida")
       expect(race.professional_racers_only).to be false
@@ -22,5 +22,9 @@ RSpec.describe Race, type: :model do
       expect(race.updated_at).not_to be nil
       expect(race.updated_at.class.name).to eq("Time")
     end
+  end
+
+  describe 'relationships' do
+    it { should have_many(:participants) }
   end
 end
