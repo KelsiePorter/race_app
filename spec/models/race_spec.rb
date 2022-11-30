@@ -13,7 +13,7 @@ RSpec.describe Race, type: :model do
 
       expect(race.name).to eq("Turkey Trot")
       expect(race.location).to eq("Salida")
-      expect(race.professional_racers_only).to be false
+      expect(race.professional_racers_only?).to be false
       expect(race.kilometers).to eq(10)
       expect(race.date).to eq(Date.today)
       expect(race.id).not_to be nil
