@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the races index page' do 
+RSpec.describe 'the races show page' do 
   before :each do 
     @race_1 = Race.create!(
       name: "Turkey Trot",
@@ -46,10 +46,13 @@ RSpec.describe 'the races index page' do
       race_id: @race_1.id
     ) 
   end
-  it 'displays the name of each race in the system' do 
-    visit '/races'
+  it 'displays the attributes of a single race' do 
+    visit "/races/#{@race_1.id}"
 
     expect(page).to have_content(@race_1.name)
-    expect(page).to have_content(@race_2.name)
+    expect(page).to have_content(@race_1.location)
+    expect(page).to have_content(@race_1.professional_racers_only)
+    expect(page).to have_content(@race_1.kilometers)
+    expect(page).to have_content(@race_1.formatted_date)
   end
 end
