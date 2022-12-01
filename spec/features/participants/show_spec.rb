@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the participants index page' do 
+RSpec.describe 'the participants show page' do 
   before :each do 
     @race_1 = Race.create!(
       name: "Turkey Trot",
@@ -45,10 +45,8 @@ RSpec.describe 'the participants index page' do
       race_id: @race_1.id
     )
   end
-
-  it 'displays the participants and their attributes in the system' do 
-    visit '/participants'
-    # save_and_open_page
+  it 'displays the attributes of a single participant' do
+    visit "/participants/#{@participant_1.id}"
 
     expect(page).to have_content(@participant_1.first_name)
     expect(page).to have_content(@participant_1.last_name)
