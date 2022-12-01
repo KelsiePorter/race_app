@@ -3,4 +3,4 @@
 <p>Location: <%= @race.location %></p>
 <p>Professional Racers Only: <%= @race.professional_racers_only %></p>
 <p>Distance (kilometers): <%= @race.kilometers %></p>
-<p>Date: <%= @race.formatted_date %></p>
+<p>Date: <%= format_date(@race.date) %></p>

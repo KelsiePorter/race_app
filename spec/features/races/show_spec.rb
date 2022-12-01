@@ -53,6 +53,6 @@ RSpec.describe 'the races show page' do
     expect(page).to have_content(@race_1.location)
     expect(page).to have_content(@race_1.professional_racers_only)
     expect(page).to have_content(@race_1.kilometers)
-    expect(page).to have_content(@race_1.formatted_date)
+    expect(page).to have_content('05/20/2023')
   end
 end

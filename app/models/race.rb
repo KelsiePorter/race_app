@@ -6,7 +6,7 @@ class Race < ApplicationRecord
                         :kilometers,
                         :date
 
-  def formatted_date 
-    self.date.strftime('%m/%d/%Y')
-  end
+  # def formatted_date 
+  #   self.date.strftime('%m/%d/%Y')
+  # end
 end
