@@ -44,12 +44,25 @@ RSpec.describe 'the races index page' do
       professional_racer: false,
       age: 87,
       race_id: @race_1.id
-    ) 
+    )
   end
   it 'displays the name of each race in the system' do 
     visit '/races'
 
     expect(page).to have_content(@race_1.name)
     expect(page).to have_content(@race_2.name)
+  end
+
+  it 'displays the races in the order they were created (most recent first)' do
+    # figure out how to test order on the page
+    @race_1.update!(created_at: DateTime.parse('29-04-2023'))
+    @race_2.update!(created_at: DateTime.parse('30-04-2023'))
+
+    visit '/races'
+
+    expect(page).to have_content(@race_1.name)
+    expect(page).to have_content(@race_2.name)
+    expect(page).to have_content('Date Created: 04/29/2023')
+    expect(page).to have_content('Date Created: 04/30/2023')
   end
 end

@@ -1,7 +1,7 @@
 class RacesController < ApplicationController 
 
   def index 
-    @races = Race.all
+    @races = Race.all.order(created_at: :desc)
   end
 
   def show
