@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'the races index page' do 
+RSpec.describe 'the participants index page' do 
   before :each do 
     @race_1 = Race.create!(
       name: "Turkey Trot",
@@ -16,7 +16,6 @@ RSpec.describe 'the races index page' do
       kilometers: 10,
       date: DateTime.parse('05-11-2023')
     )
-    
     @participant_1 = Participant.create!(
       first_name: "Kristen",
       last_name: "Bell",
@@ -46,23 +45,14 @@ RSpec.describe 'the races index page' do
       race_id: @race_1.id
     )
   end
-  it 'displays the name of each race in the system' do 
-    visit '/races'
 
-    expect(page).to have_content(@race_1.name)
-    expect(page).to have_content(@race_2.name)
-  end
+  it 'displays the participants and their attributes in the system' do 
+    visit '/participants'
+    # save_and_open_page
 
-  it 'displays the races in the order they were created (most recent first)' do
-    # figure out how to test order on the page
-    @race_1.update!(created_at: DateTime.parse('29-04-2023'))
-    @race_2.update!(created_at: DateTime.parse('30-04-2023'))
-
-    visit '/races'
-
-    expect(page).to have_content(@race_1.name)
-    expect(page).to have_content(@race_2.name)
-    expect(page).to have_content('Date Created: 04/29/2023')
-    expect(page).to have_content('Date Created: 04/30/2023')
+    expect(page).to have_content(@participant_1.first_name)
+    expect(page).to have_content(@participant_1.last_name)
+    expect(page).to have_content(@participant_1.professional_racer)
+    expect(page).to have_content(@participant_1.age)
   end
 end

@@ -1,0 +1,7 @@
+<h1><%= @race.name %></h1>
+<h3>Race Details:</h3>
+<p>Location: <%= @race.location %></p>
+<p>Professional Racers Only: <%= @race.professional_racers_only %></p>
+<p>Distance (kilometers): <%= @race.kilometers %></p>
+<p>Date: <%= format_date(@race.date) %></p>
+<p>Number of Participants: <%= @race.participants.size %></p>

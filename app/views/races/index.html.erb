@@ -1,4 +1,6 @@
 <h1>Races</h1>
 <% @races.each do |race|%>
-  <p><%= race.name %></p>
+  <p>Name: <%= race.name %></p>
+  <p>Date Created: <%= format_date(race.created_at) %></p>
+  <p>----------------------------------</p>
 <% end %>
