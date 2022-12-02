@@ -55,4 +55,10 @@ RSpec.describe 'the races show page' do
     expect(page).to have_content(@race_1.kilometers)
     expect(page).to have_content('05/20/2023')
   end
+
+  it 'displays the number of participants associated with the race' do 
+    visit "/races/#{@race_1.id}"
+
+    expect(page).to have_content("Number of Participants: 2")
+  end
 end
