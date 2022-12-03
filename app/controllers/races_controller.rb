@@ -13,14 +13,29 @@ class RacesController < ApplicationController
   end
 
   def create 
-    date = DateTime.parse(params[:date])
-    race = Race.create(
-      name: params[:name],
-      date: date,
-      location: params[:location],
-      kilometers: params[:kilometers],
-      professional_racers_only: params[:professional_racers_only]
-    )
+    race_params = permitted_params.merge(date: DateTime.parse(params[:date]))
+    Race.create(race_params)
     redirect_to "/races"
+  end
+
+  def edit 
+    @race = Race.find(params[:id])
+  end
+
+  def update 
+    race = Race.find(params[:id])
+    race.update(permitted_params)
+    redirect_to '/races'
+  end
+
+  private 
+
+  def permitted_params 
+    params.permit(
+      :name, 
+      :location, 
+      :kilometers, 
+      :professional_racers_only
+    )
   end
 end

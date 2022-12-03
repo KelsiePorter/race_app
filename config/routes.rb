@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/participants/:id', to: 'participants#show'
   get '/races/:id/participants', to: 'races_participants#index'
   post '/races', to: 'races#create'
+  get 'races/:id/edit', to: 'races#edit'
+  patch '/races/:id', to: 'races#update'
 end
