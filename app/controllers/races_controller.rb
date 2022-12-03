@@ -7,4 +7,20 @@ class RacesController < ApplicationController
   def show
     @race = Race.find(params[:id]) 
   end
+
+  def new
+  
+  end
+
+  def create 
+    date = DateTime.parse(params[:date])
+    race = Race.create(
+      name: params[:name],
+      date: date,
+      location: params[:location],
+      kilometers: params[:kilometers],
+      professional_racers_only: params[:professional_racers_only]
+    )
+    redirect_to "/races"
+  end
 end
