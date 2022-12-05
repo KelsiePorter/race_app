@@ -9,11 +9,11 @@ class RacesController < ApplicationController
   end
 
   def new
-  
+    @race = Race.new
   end
 
   def create 
-    race_params = permitted_params.merge(date: DateTime.parse(params[:date]))
+    race_params = permitted_params.merge(date: DateTime.parse(params.require(:race)[:date]))
     Race.create(race_params)
     redirect_to "/races"
   end

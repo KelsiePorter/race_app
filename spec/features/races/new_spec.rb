@@ -10,12 +10,13 @@ RSpec.describe 'the Race creation' do
 
   it 'can create a new race' do 
     visit '/races/new'
+    save_and_open_page
 
-    fill_in("name", with: "Copper 10k")
-    fill_in("location", with: "Copper")
-    fill_in("kilometers", with: "10")
-    fill_in("date", with: "25-08-2022")
-    fill_in("professional_racers_only", with: "true")
+    fill_in("Name", with: "Copper 10k")
+    fill_in("Location", with: "Copper")
+    fill_in("Kilometers", with: "10")
+    fill_in("Date", with: "25-08-2022")
+    fill_in("Professional racers only", with: "true")
     click_button("Create Race")
 
     new_race_id = Race.last.id

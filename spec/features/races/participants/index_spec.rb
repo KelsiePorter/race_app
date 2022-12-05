@@ -58,4 +58,12 @@ RSpec.describe 'Races participants index' do
     expect(page).to have_content(@participant_4.professional_racer)
     expect(page).to have_content(@participant_4.age)
   end
+
+  xit 'a link can sort the races participants in alphabetical order' do
+    visit "/races/#{@race_1.id}/participants"
+
+    click_link("Sort by Alphabetical")
+
+    expect(current_path).to eq("/races/#{@race_1.id}/participants")
+  end
 end

@@ -12,7 +12,7 @@ RSpec.describe 'the participant edit' do
     @participant = Participant.create!(
       first_name: "Dean",
       last_name: "Kelly",
-      professional_racer: false,
+      professional_racer: true,
       age: 87,
       race_id: @race.id
     )
@@ -20,6 +20,7 @@ RSpec.describe 'the participant edit' do
 
   it 'links to the edit page' do
     visit '/participants'
+
     click_button "Edit #{@participant.first_name}"
 
     expect(current_path).to eq("/participants/#{@participant.id}/edit")
