@@ -18,7 +18,6 @@ participant_1 = Participant.create!(
   professional_racer: true,
   age: 78,
   race_id: race_2.id,
-  created_at:
 ) 
 participant_2 = Participant.create!(
   first_name: "Tom",

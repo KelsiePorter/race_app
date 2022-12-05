@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/races/:id', to: 'races#show'
   get '/participants', to: 'participants#index'
   get '/participants/:id', to: 'participants#show'
+  get '/participants/:id/edit', to: 'participants#edit'
+  patch '/participants/:id', to: 'participants#update'
   get '/races/:id/participants', to: 'races_participants#index'
   get '/races/:id/participants/new', to: 'races_participants#new'
   post '/races/:id/participants', to: 'races_participants#create'
