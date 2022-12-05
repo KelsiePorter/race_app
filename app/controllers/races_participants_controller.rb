@@ -1,7 +1,11 @@
 class RacesParticipantsController < ApplicationController 
   def index 
     @race = Race.find(params[:id])
-    @race_participants = @race.participants
+    if params[:sorted]
+      @race_participants = @race.participants.order(:last_name)
+    else
+      @race_participants = @race.participants
+    end
   end
 
   def new 

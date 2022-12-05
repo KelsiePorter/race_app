@@ -10,7 +10,6 @@ RSpec.describe 'the Race creation' do
 
   it 'can create a new race' do 
     visit '/races/new'
-    save_and_open_page
 
     fill_in("Name", with: "Copper 10k")
     fill_in("Location", with: "Copper")
