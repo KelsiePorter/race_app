@@ -31,7 +31,7 @@ class RacesController < ApplicationController
   private 
 
   def permitted_params 
-    params.permit(
+    params.require(:race).permit(
       :name, 
       :location, 
       :kilometers, 
