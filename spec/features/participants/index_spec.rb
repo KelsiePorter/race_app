@@ -46,7 +46,7 @@ RSpec.describe 'the participants index page' do
     )
   end
 
-  it 'displays the participants and their attributes in the system' do 
+  it 'only displays the participants and their attributes if they are professional racers' do 
     visit '/participants'
     # save_and_open_page
 
@@ -54,5 +54,6 @@ RSpec.describe 'the participants index page' do
     expect(page).to have_content(@participant_1.last_name)
     expect(page).to have_content(@participant_1.professional_racer)
     expect(page).to have_content(@participant_1.age)
+    expect(page).not_to have_content(@participant_2.first_name)
   end
 end
