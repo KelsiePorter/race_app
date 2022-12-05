@@ -67,4 +67,10 @@ RSpec.describe 'the races show page' do
 
     expect(page).to have_content("#{@race_1.name} Participants")
   end
+
+  it 'has a link to edit a race' do 
+    visit "/races/#{@race_1.id}"
+
+    expect(page).to have_link("Edit", href: "/races/#{@race_1.id}/edit")
+  end
 end

@@ -65,4 +65,11 @@ RSpec.describe 'the races index page' do
     expect(page).to have_content('Date Created: 04/29/2023')
     expect(page).to have_content('Date Created: 04/30/2023')
   end
+
+  it 'displays a link to each races show page' do 
+    visit '/races'
+
+    expect(page).to have_link(@race_1.name, href: "/races/#{@race_1.id}")
+    expect(page).to have_link(@race_2.name, href: "/races/#{@race_2.id}")
+  end
 end
