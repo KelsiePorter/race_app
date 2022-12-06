@@ -53,4 +53,10 @@ RSpec.describe 'the participants show page' do
     expect(page).to have_content(@participant_1.professional_racer)
     expect(page).to have_content(@participant_1.age)
   end
+
+  it 'displays an edit button on a participants show page' do 
+    visit "/participants/#{@participant_1.id}"
+
+    expect(page).to have_button("Edit #{@participant_1.first_name}")
+  end
 end

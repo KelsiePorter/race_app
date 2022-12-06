@@ -19,7 +19,7 @@ RSpec.describe 'the participant edit' do
   end
 
   it 'links to the edit page' do
-    visit '/participants'
+    visit "/participants/#{@participant.id}"
 
     click_button "Edit #{@participant.first_name}"
 
@@ -27,7 +27,7 @@ RSpec.describe 'the participant edit' do
   end
 
   it 'can edit a participant' do 
-    visit '/participants'
+    visit "/participants/#{@participant.id}"
 
     expect(page).to have_content("Dean")
 
@@ -35,7 +35,7 @@ RSpec.describe 'the participant edit' do
     fill_in "First name", with: "Mike"
     click_button "Update Participant"
 
-    expect(current_path).to eq("/participants")
+    expect(current_path).to eq("/participants/#{@participant.id}")
     expect(page).to have_content("Mike")
   end
 end

@@ -14,7 +14,7 @@ class ParticipantsController < ApplicationController
    def update
     participant = Participant.find(params[:id])
     participant.update(permitted_params)
-    redirect_to '/participants'
+    redirect_to "/participants/#{participant.id}"
    end
 
    private

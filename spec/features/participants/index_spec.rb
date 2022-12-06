@@ -48,12 +48,18 @@ RSpec.describe 'the participants index page' do
 
   it 'only displays the participants and their attributes if they are professional racers' do 
     visit '/participants'
-    # save_and_open_page
 
     expect(page).to have_content(@participant_1.first_name)
     expect(page).to have_content(@participant_1.last_name)
     expect(page).to have_content(@participant_1.professional_racer)
     expect(page).to have_content(@participant_1.age)
     expect(page).not_to have_content(@participant_2.first_name)
+  end
+
+  it 'displays a link to each participants show page' do 
+    visit '/participants'
+
+    expect(page).to have_link(@participant_1.first_name, href: "/participants/#{@participant_1.id}")
+    expect(page).not_to have_link(@participant_2.first_name, href: "/participants/#{@participant_2.id}")
   end
 end
