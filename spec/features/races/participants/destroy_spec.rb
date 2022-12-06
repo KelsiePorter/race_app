@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'destroy a participant' do 
+RSpec.describe 'destroy a races participant' do
   before :each do 
     @race_1 = Race.create!(
       name: "Turkey Trot",
@@ -23,19 +23,10 @@ RSpec.describe 'destroy a participant' do
       age: 40,
       race_id: @race_1.id
     ) 
-
-  end
-  it 'can delete a participant from the participant show page' do 
-    visit "/participants/#{@participant_1.id}"
-
-    click_button "Delete #{@participant_1.first_name}"
-
-    expect(current_path).to eq('/participants')
-    expect(page).not_to have_content("Kristen")
   end
 
-  it 'can delete a participant from the participant index page' do
-    visit '/participants'
+  it 'can delete a races participant from the races participants index' do 
+    visit "/races/#{@race_1.id}/participants"
 
     click_button "Delete #{@participant_1.first_name}"
 
