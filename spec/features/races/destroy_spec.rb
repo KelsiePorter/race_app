@@ -26,4 +26,14 @@ RSpec.describe 'destroy a race' do
     expect(current_path).to eq('/races')
     expect(page).not_to have_content("Turkey Trot")
   end 
+
+  it 'can delete the race from the race index page' do 
+    visit '/races'
+
+    click_button "Delete #{@race_1.name}"
+
+    expect(current_path).to eq('/races')
+    expect(page).not_to have_content("Turkey Trot")
+    expect(page).to have_content("Tough Mudder")
+  end
 end
