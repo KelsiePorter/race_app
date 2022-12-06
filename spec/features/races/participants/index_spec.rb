@@ -68,4 +68,10 @@ RSpec.describe 'Races participants index' do
     expect(page).to have_content("Havorford")
     expect(page).to have_content("Kelly")
   end
+
+  it 'has a button to edit a races participants on the index page' do
+    visit "/races/#{@race_1.id}/participants"
+
+    expect(page).to have_button("Edit #{@participant_2.first_name}")
+  end
 end

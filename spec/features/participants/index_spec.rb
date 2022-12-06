@@ -62,4 +62,10 @@ RSpec.describe 'the participants index page' do
     expect(page).to have_link(@participant_1.first_name, href: "/participants/#{@participant_1.id}")
     expect(page).not_to have_link(@participant_2.first_name, href: "/participants/#{@participant_2.id}")
   end
+
+  it 'displays an edit button for each participant on index page' do 
+    visit '/participants'
+
+    expect(page).to have_button("Edit #{@participant_1.first_name}")
+  end
 end
