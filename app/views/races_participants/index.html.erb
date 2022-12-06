@@ -1,4 +1,9 @@
 <h1><%= @race.name %> Participants</h1>
+<p><strong> Only return participants over the provided age</strong></p>
+<%= form_tag "/races/#{@race.id}/participants", method: :get do %>
+  <%= text_field_tag(:age_threshold, params[:age_threshold]) %>
+  <%= submit_tag("Submit")%><br><br>
+<% end %>
 
 <% @race_participants.each do |participant|%>
   <p>First Name: <%= participant.first_name %></p>
