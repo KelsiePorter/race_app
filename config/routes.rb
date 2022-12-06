@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post '/races', to: 'races#create'
   get 'races/:id/edit', to: 'races#edit'
   patch '/races/:id', to: 'races#update'
+  delete '/races/:id', to: 'races#destroy'
 end
