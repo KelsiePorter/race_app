@@ -1,0 +1,13 @@
+<%= form_with  url:'/races', model: @race, method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :location %>
+  <%= form.text_field :location %><br><br>
+  <%= form.label :kilometers %>
+  <%= form.text_field :kilometers %><br><br>
+  <%= form.label :professional_racers_only %>
+  <%= form.text_field :professional_racers_only %><br><br>
+  <%= form.label :date, "Date (dd-mm-yyyy)" %>
+  <%= form.text_field :date %><br><br>
+  <%= form.submit "Create Race" %>
+<% end %>

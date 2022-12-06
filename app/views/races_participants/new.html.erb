@@ -1,0 +1,11 @@
+<%= form_with url: "/races/#{@race.id}/participants", method: :post, local: true do |form| %>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %><br><br>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %><br><br>
+  <%= form.label :professional_racer %>
+  <%= form.text_field :professional_racer %><br><br>
+  <%= form.label :age %>
+  <%= form.text_field :age %><br><br>
+  <%= form.submit "Create Participant" %>
+<% end %>

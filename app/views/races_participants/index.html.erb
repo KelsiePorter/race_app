@@ -5,5 +5,9 @@
   <p>Last Name: <%= participant.last_name %></p>
   <p>Professional Racer: <%= participant.professional_racer %></p>
   <p>Age: <%= participant.age %></p>
+  <%= button_to "Edit #{participant.first_name}", "/participants/#{participant.id}/edit", method: :get %>
   <p>---------------------------------</p>
 <% end %>
+
+<%= link_to "New Participant", "/races/#{@race.id}/participants/new" %><br>
+<%= link_to "Sort Alphabetically", "/races/#{@race.id}/participants?sorted=true"%>

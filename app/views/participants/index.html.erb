@@ -1,8 +1,11 @@
 <h1>Participants</h1>
 <% @participants.each do |participant|%>
-<p>First Name: <%= participant.first_name %></p>
+<p>First Name: <a href= <%= "/participants/#{participant.id}"%>> <%= participant.first_name %></a></p>
 <p>Last Name: <%= participant.last_name %></p>
 <p>Professional Racer: <%= participant.professional_racer %></p>
 <p>Age: <%= participant.age %></p>
+<%= button_to "Edit #{participant.first_name}", "/participants/#{participant.id}/edit", method: :get %>
 <p>---------------------------------</p>
 <% end %>
+
+

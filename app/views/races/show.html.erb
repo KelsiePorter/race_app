@@ -5,3 +5,7 @@
 <p>Distance (kilometers): <%= @race.kilometers %></p>
 <p>Date: <%= format_date(@race.date) %></p>
 <p>Number of Participants: <%= @race.participants.size %></p>
+
+<%= link_to "Edit", "/races/#{@race.id}/edit" %><br>
+
+<%= link_to "#{@race.name} Participants", "/races/#{@race.id}/participants" %>
