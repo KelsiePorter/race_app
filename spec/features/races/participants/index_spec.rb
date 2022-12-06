@@ -27,7 +27,7 @@ RSpec.describe 'Races participants index' do
     @participant_2 = Participant.create!(
       first_name: "Tom",
       last_name: "Havorford",
-      professional_racer: false,
+      professional_racer: true,
       age: 40,
       race_id: @race_1.id
     ) 
@@ -41,8 +41,22 @@ RSpec.describe 'Races participants index' do
     @participant_4 = Participant.create!(
       first_name: "Dean",
       last_name: "Kelly",
-      professional_racer: false,
+      professional_racer: true,
       age: 87,
+      race_id: @race_1.id
+    ) 
+    @participant_5 = Participant.create!(
+      first_name: "Butch",
+      last_name: "Bell",
+      professional_racer: true,
+      age: 33,
+      race_id: @race_1.id
+    ) 
+    @participant_6 = Participant.create!(
+      first_name: "Gonzo",
+      last_name: "Bell",
+      professional_racer: true,
+      age: 7,
       race_id: @race_1.id
     ) 
   end
@@ -73,5 +87,25 @@ RSpec.describe 'Races participants index' do
     visit "/races/#{@race_1.id}/participants"
 
     expect(page).to have_button("Edit #{@participant_2.first_name}")
+  end
+
+  it 'returns participants with an age higher than the user input' do 
+    visit "/races/#{@race_1.id}/participants"
+
+    all_participants = [@participant_2, @participant_4, @participant_5, @participant_6]
+    filtered_participants = [@participant_2, @participant_4, @participant_5]
+    all_participants.each do |participant|
+      expect(page).to have_content(participant.first_name)
+    end
+    expect(page).to have_content("Only return participants over the provided age")
+    
+    fill_in('age_threshold', with: "15")
+    click_button("Submit")
+
+    filtered_participants.each do |participant|
+      expect(page).to have_content(participant.first_name)
+    end
+
+    expect(page).not_to have_content(@participant_3.first_name)
   end
 end

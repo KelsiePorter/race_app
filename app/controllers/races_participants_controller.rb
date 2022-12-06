@@ -3,6 +3,8 @@ class RacesParticipantsController < ApplicationController
     @race = Race.find(params[:id])
     if params[:sorted]
       @race_participants = @race.participants.order(:last_name)
+    elsif params[:age_threshold]
+      @race_participants = @race.participants.where("age > #{params[:age_threshold]}")
     else
       @race_participants = @race.participants
     end

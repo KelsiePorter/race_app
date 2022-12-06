@@ -1,7 +1,9 @@
 <h1>Races</h1>
 <% @races.each do |race|%>
-  <p>Name: <a href= <%="/races/#{race.id}"%>> <%= race.name %></a> <%= button_to "Edit #{race.name}", "/races/#{race.id}/edit", method: :get %></p>
-  <p>Date Created: <%= format_date(race.created_at) %></p>
+  <p>Name: <a href= <%="/races/#{race.id}"%>> <%= race.name %></a></p>
+  <p>Date Created: <%= format_date(race.created_at) %></p><br>
+  <%= button_to "Edit #{race.name}", "/races/#{race.id}/edit", method: :get %><br>
+  <%= button_to "Delete #{race.name}", "/races/#{race.id}", method: :delete%>
   <p>----------------------------------</p>
 <% end %>
 

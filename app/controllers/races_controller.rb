@@ -28,6 +28,12 @@ class RacesController < ApplicationController
     redirect_to '/races'
   end
 
+  def destroy
+    race = Race.find(params[:id])
+    race.destroy
+    redirect_to '/races'
+  end
+
   private 
 
   def permitted_params 
