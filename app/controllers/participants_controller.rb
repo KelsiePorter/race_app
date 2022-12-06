@@ -17,6 +17,12 @@ class ParticipantsController < ApplicationController
     redirect_to "/participants/#{participant.id}"
    end
 
+   def destroy 
+    participant = Participant.find(params[:id])
+    participant.destroy
+    redirect_to '/participants'
+   end
+
    private
 
    def permitted_params
