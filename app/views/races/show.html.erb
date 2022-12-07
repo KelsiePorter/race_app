@@ -4,7 +4,7 @@
 <p>Professional Racers Only: <%= @race.professional_racers_only %></p>
 <p>Distance (kilometers): <%= @race.kilometers %></p>
 <p>Date: <%= format_date(@race.date) %></p>
-<p>Number of Participants: <%= @race.participants.size %></p>
+<p>Number of Participants: <%= @race.participant_count %></p>
 
 <%= link_to "Edit", "/races/#{@race.id}/edit" %><br><br>
 <%= button_to "Delete #{@race.name}", "/races/#{@race.id}", method: :delete%><br><br>
