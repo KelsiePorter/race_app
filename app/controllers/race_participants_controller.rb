@@ -1,4 +1,4 @@
-class RacesParticipantsController < ApplicationController 
+class RaceParticipantsController < ApplicationController 
   def index 
     @race = Race.find(params[:id])
     if params[:sorted]
