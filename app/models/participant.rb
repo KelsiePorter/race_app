@@ -8,4 +8,8 @@ class Participant < ApplicationRecord
   def self.professional_racers
     where(professional_racer: "true")
   end
+
+  def self.racers_over_age(age)
+    where("age > #{age}")
+  end
 end
