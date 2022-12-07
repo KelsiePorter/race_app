@@ -4,7 +4,7 @@ class RaceParticipantsController < ApplicationController
     if params[:sorted]
       @race_participants = @race.participants.order(:last_name)
     elsif params[:age_threshold]
-      @race_participants = @race.participants.racers_over_age(params[:age_threshold])
+      @race_participants = @race.racers_over_age(params[:age_threshold])
     else
       @race_participants = @race.participants
     end

@@ -57,8 +57,8 @@ RSpec.describe Participant, type: :model do
     end
     describe 'racers_over_age' do
       it 'returns all participants over given age threshold' do 
-        
-        expect(Participant.racers_over_age(40)).to match_array([@participant_1, @participant_4])
+
+        expect(Participant.over_age(40)).to match_array([@participant_1, @participant_4])
       end
     end
   end

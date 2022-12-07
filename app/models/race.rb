@@ -9,4 +9,8 @@ class Race < ApplicationRecord
   def participant_count
     participants.size
   end
+
+  def racers_over_age(age)
+    participants.over_age(age)
+  end
 end
