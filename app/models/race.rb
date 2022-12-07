@@ -13,4 +13,8 @@ class Race < ApplicationRecord
   def racers_over_age(age)
     participants.over_age(age)
   end
+
+  def racers_sorted_by_last_name
+    participants.order(:last_name)
+  end
 end

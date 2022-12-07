@@ -63,5 +63,14 @@ RSpec.describe Race, type: :model do
         expect(@race_1.racers_over_age(40)).to match_array([@participant_1, @participant_4])
       end
     end
+
+    describe '#racers_sorted_by_last_name' do
+      it 'returns the races participants in acending ordered by last name' do
+
+        expect(@race_1.racers_sorted_by_last_name).to match_array([@participant_1, @participant_3, @participant_2, @participant_4])
+        expect(@race_1.racers_sorted_by_last_name).to be_an(ActiveRecord::Relation)
+        expect(@race_1.racers_sorted_by_last_name.to_a).to eq([@participant_1, @participant_3, @participant_2, @participant_4])
+      end
+    end
   end
 end
