@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
    def index 
-    @participants = Participant.where(professional_racer: "true")
+    @participants = Participant.professional_racers
    end
 
    def show 

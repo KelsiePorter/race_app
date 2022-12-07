@@ -6,7 +6,15 @@ class Race < ApplicationRecord
                         :kilometers,
                         :date
 
-  # def formatted_date 
-  #   self.date.strftime('%m/%d/%Y')
-  # end
+  def participant_count
+    participants.size
+  end
+
+  def racers_over_age(age)
+    participants.over_age(age)
+  end
+
+  def racers_sorted_by_last_name
+    participants.order(:last_name)
+  end
 end
